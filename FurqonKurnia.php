@@ -5,11 +5,11 @@
 class mahasiswa
 { 
     // Properties
-    public $name;
-    public $nim;
-    public $matkul;
-    public $cita;
-    public $organisasi;
+    private $name;
+    private $nim;
+    private $matkul;
+    private $cita;
+    private $organisasi;
     // Methods
     function __construct ($name, $nim, $matkul, $cita, $organisasi){
   	$this->name = $name;
@@ -38,18 +38,21 @@ class mahasiswa
     {
         return $this->organisasi;
     }
-    public function intro() {
-        echo "Nama saya {$this->name} dengan nim {$this->nim}, dalam mata kuliah {$this->matkul}, saya memiliki cita-cita {$this->cita} dan saya juga bergabung dalam organisasi {$this->organisasi}";
+    function __destruct() {
+        echo "Perkenalkan nama saya {$this->name} dengan nim {$this->nim} mata kuliah saya kali ini adalah {$this->matkul} saya memiliki cita-cita {$this->cita}, didalam kampus saya bergabung dengan organisasi {$this->organisasi}.";
     }
 }
-class organisasi extends mahasiswa {
-    public function message() {
-    echo "Perkenalkan dirimu!";
-    }
-}
+$Furrz = new mahasiswa('Furqon Kurnia', '2255201018', 'pbo', 'Hack Bank Israel', 'Separate community');
     
-$Furrz = new mahasiswa('Furqon Kurnia', '2255201018', 'pbo', 'Hack Bank Israel', 'Ganjar Pranowo Nomer Satu'); $Furrz->message();
-$Furrz->intro();    
+echo "Nama: " . $Furrz->get_name();
+echo "<br>";
+echo "nim: " .  $Furrz->get_nim();
+echo "<br>";
+echo "matkul: " . $Furrz->get_matkul();
+echo "<br>";
+echo "Cita-Cita: " . $Furrz->get_cita();
+echo "<br>";
+echo $Furrz->get_organisasi();
 
 ?>
 

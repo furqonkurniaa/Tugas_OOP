@@ -2,58 +2,54 @@
 <html>
 <body>
 <?php
-class mahasiswa {
-  // Properties
-  private $name;
-  private $nim;
-  private $matkul;
-  private $cita_cita;
-
-  // Methods
-  function set_name($name) {
-    $this->name = $name;
-  function __construct ($name, $nim, $matkul, $cita_cita){
+class mahasiswa
+{ 
+    // Properties
+    public $name;
+    public $nim;
+    public $matkul;
+    public $cita;
+    public $organisasi;
+    // Methods
+    function __construct ($name, $nim, $matkul, $cita, $organisasi){
   	$this->name = $name;
     $this->nim = $nim;
     $this->matkul = $matkul;
-    $this->cita_cita = $cita_cita;
-  }
-  function get_name() {
-    return $this->name;
-  }
-  function set_nim($nim) {
-    $this->nim = $nim;
-  }
-  function get_nim() {
-    return $this->nim;
-  }
-  function set_matkul($matkul) {
-  	$this->matkul = $matkul;
-  }
-  function get_matkul () {
-  function get_matkul() {
-  	return $this->matkul;
-  }
-  function get_cita_cita() {
-  	return $this->cita_cita;
-  }
+    $this->cita = $cita;
+    $this->organisasi = $organisasi;
+    }
+    function get_name()
+    {
+        return $this->name;
+    }
+    function get_nim() 
+    {
+        return $this->nim;
+    }
+    function get_matkul() 
+    {
+  	    return $this->matkul;
+    }
+    function get_cita() 
+    {
+  	    return $this->cita;
+    }
+    function get_organisasi()
+    {
+        return $this->organisasi;
+    }
+    public function intro() {
+        echo "Nama saya {$this->name} dengan nim {$this->nim}, dalam mata kuliah {$this->matkul}, saya memiliki cita-cita {$this->cita} dan saya juga bergabung dalam organisasi {$this->organisasi}";
+    }
 }
-
-$Furqon = new mahasiswa();
-$Furqon->set_name('Furqon Kurnia');
-$Furqon->set_nim('2255201018');
-$Furqon->set_matkul('pbo');
-echo "Nama: " . $Furqon->get_name();
-$Furqon = new mahasiswa('Furqon Kurnia', '2255201018', 'pbo', 'penjHt');
-echo $Furqon->get_name();
-echo "<br>";
-echo $Furqon->get_nim();
-echo "<br>";
-echo "nim: " .  $Furqon->get_nim();
-echo $Furqon->get_matkul();
-echo "<br>";
-echo "matkul: " . $Furqon->get_matkul();
-echo $Furqon->get_cita_cita();
+class organisasi extends mahasiswa {
+    public function message() {
+    echo "Perkenalkan dirimu!";
+    }
+}
+    
+$Furrz = new mahasiswa('Furqon Kurnia', '2255201018', 'pbo', 'Hack Bank Israel', 'Ganjar Pranowo Nomer Satu'); $Furrz->message();
+$Furrz->intro();    
 
 ?>
 
